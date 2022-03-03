@@ -24,4 +24,13 @@ dat=read.csv(file.path(path, filename))
 dat1=read.csv(file.path(path, filename1))
 dat2=read.csv(file.path(path, filename2))
 
+url <- "https://raw.githubusercontent.com/rafalab/dslabs/master/inst/extdata/murders.csv"
+dat <- read_csv(url)
+tmp_filename <- tempfile()
+download.file(url,tmp_filename)
+dat <- read_csv(tmp_filename)
+file.remove(tmp_filename)
 
+read_lines("wdbc.data", n_max = 3)
+url <- "https://archive.ics.uci.edu/ml/machine-learning-databases/breast-cancer-wisconsin/wdbc.data"
+read_csv(url,col_names = FALSE)
